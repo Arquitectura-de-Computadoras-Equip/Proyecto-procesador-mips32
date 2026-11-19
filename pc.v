@@ -1,15 +1,11 @@
-module pc (
-  input clk,
-  input reset,
-  input [31:0] next_pc,
-  output reg [31:0] pc_out
+module PC (
+    input  wire        clk,
+    input  wire [31:0] AddInst,
+    output reg  [31:0] NextInst
 );
 
-  always @(posedge clk) begin
-    if (reset)
-      pc_out <= 32'b0;
-    else 
-      pc_out <= next_pc;
+    always @(posedge clk) begin
+        NextInst <= AddInst;
+    end
 
-  end
 endmodule
